@@ -34,7 +34,8 @@ width: 100%;
 .principal .formulario input[type=text].error
 {
 border: 5px solid #4936f4;
-color: red;
+background: aqua;
+color: rgb(179, 37, 37);
 }
 .principal .formulario .boton
 {

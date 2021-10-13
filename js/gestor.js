@@ -3,18 +3,16 @@
     {
         //variables
         var lista=document.getElementById("lista"), 
-        tareasInput=document.getElementById("tareainput"),
+         tareasInput=document.getElementById("tareainput"),
          btnNuevaTarea=document.getElementById("btn-agregar");
       
       //funciones
     var AgregarTarea=function()
                     {
-                        var tarea = tareasInput.value,
-                         nuevatarea=document.createElement("li"),
-                         enlace=document.createElement("a"),
-                         contenido=document.createTextNode(tarea);
-
-
+                        var tarea = tareasInput.value;
+                        var nuevatarea=document.createElement("li");
+                        var enlace=document.createElement("a");
+                        var contenido=document.createTextNode(tarea);
                         if(tarea==="")
                         {
                             tareasInput.setAttribute("placeholder","=> Agregar una Tarea Valida  <=");
@@ -41,11 +39,23 @@
                           );
                         }
                      };
-      var comprobarInput= function()
-      {
-        tareasInput.className= "";
-        tareasInput.setAttribute("placeholder","*******Agregar tu Tarea***********");
-      }
+                     var comprobarInput=function()
+                     {
+                       tareasInput.className="";
+                       tareasInput.setAttribute("placeholder","-> Agregar una Tarea <-");
+                     }
 
-      btnNuevaTarea.addEventListener("click",AgregarTarea);
+                     var eliminarTarea=function()
+                     {
+                       this.parantNode.removeChild(this);
+                     }
+                     //EVENTOS
+                     tareasInput.addEventListener("click",comprobarInput);
+                     btnNuevaTarea.addEventListener("click",AgregarTarea);
+                     
+                     for(var i=0;i<=lista.children.length-1;i++)
+                     {
+                         lista.children[i].addEventListener("click",eliminarTarea);
+                     }
+
   }());
